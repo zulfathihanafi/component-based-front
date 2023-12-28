@@ -11,7 +11,7 @@ import { MdFilterListAlt } from "react-icons/md";
 import { ConfirmationPage } from '../commons';
 import { removeUser } from './js/removeUser';
 
-export function SinglePet(props) {
+export function SingleInventory(props) {
 
     const [hover, setHover] = useState(false);
     const [cookies, setCookie] = useCookies();
@@ -42,9 +42,6 @@ export function SinglePet(props) {
       return (
           <tr style={hover ? {...client, ...clientHover} : client} onMouseOver={MouseOver} onMouseOut={MouseOut}>
             <td style={title}>
-              <div style={thumbnail}>
-                <img src={"https://bootdey.com/img/Content/avatar/avatar"+(Number(props.user_data.id%8)+1)+".png"} alt="" style={thumbnailImage}/>
-              </div>
               <div>
                 <div>
                   <div>
@@ -52,23 +49,23 @@ export function SinglePet(props) {
                   </div>
                   <div>
                     <ul style={list}>
-                      <li style={listItem}><MdFilterListAlt size="15"/>{props.user_data.species}</li>
+                      <li style={listItem}><MdFilterListAlt size="15" />{props.user_data.type}</li>
+                      <li style={listItem}><MdFilterListAlt size="15" />{cookies.user.role.id==5 ? (Number(props.user_data.stock) ? "In Stock": "Out of Stock") : (Number(props.user_data.stock) ? "In Stock: "+props.user_data.stock: "Out of Stock")}</li>
                     </ul>
                   </div>
                 </div>
               </div>
             </td>
             <td style={textField}>
-              <span style={textFieldText}>Pet ID: {props.user_data.id}</span>
+              <span style={textFieldText}>Product ID: {props.user_data.id}</span>
             </td>
-            <td style={textField}>
-              <span style={textFieldText}>Breed: {props.user_data.breed}</span>
+            <td style={textFieldPrimary}>
+              <span style={textFieldTextPrimary}>Price: {props.user_data.pricePerUnit} ALL</span>
             </td>
             <td style={actions}>
               <ul style={actionList}>
-                <li style={actionListItem}><a href="#" onClick={(e) => props.onOpenUserForm(e, props.user_data.id)} user_id = {props.user_data.id} style={{"color": "#2d3b55"}}><AiFillEye size="25"/></a></li>
-                {cookies.user.role.id==1 || cookies.user.role.id==4 || cookies.user.role.id==2 ? <li style={actionListItem}><a href="#" onClick={(e) => props.onOpenUserForm(e, props.user_data.id, "edit")} user_id = {props.user_data.id} style={{"color": "#60C656"}}><AiFillEdit size="25"/></a></li> : ""}
-                {cookies.user.role.id==1 || cookies.user.role.id==4 || cookies.user.role.id==2 ? <li style={actionListItem}><a href="#"style={{"color": "#D13C1D"}} onClick={onDeleteClick}><AiFillDelete size="25"/></a></li> : ""}
+                {cookies.user.role.id==1 || cookies.user.role.id==2 ? <li style={actionListItem}><a href="#" onClick={(e) => props.onOpenUserForm(e, props.user_data.id, "edit")} user_id = {props.user_data.id} style={{"color": "#60C656"}}><AiFillEdit size="25"/></a></li> : ""}
+                {cookies.user.role.id==1 || cookies.user.role.id==2 ? <li style={actionListItem}><a href="#"style={{"color": "#D13C1D"}} onClick={onDeleteClick}><AiFillDelete size="25"/></a></li> : ""}
               </ul>
             </td>
           </tr>
@@ -104,22 +101,6 @@ const Container = {
   "overflow": "auto"
 }
 
-const thumbnail = {
-    "margin-right": "25px",
-    "-webkit-box-flex": 0,
-    "-ms-flex": "0 0 80px",
-    "flex": "0 0 80px",
-    "border": "none",
-}
-
-const thumbnailImage = {
-    "width": "80px",
-    "height": "80px",
-    "-o-object-fit": "cover",
-    "object-fit": "cover",
-    "overflow": "hidden",
-    "border-radius": "50%",
-}
 
 const title = {
   "display": "flex",
@@ -129,6 +110,7 @@ const title = {
   "align-items": "center",
   "vertical-align": "middle",
   "padding": "20px 0",
+  "margin-left": "20px"
 }
 const name = {
     "font-size": "16px",
@@ -147,7 +129,28 @@ const textField = {
 
 const textFieldText = {
     "display": "block",
-    "margin": "0 auto"
+    "margin": "0 auto",
+    
+}
+
+const textFieldPrimary = {
+  "vertical-align": "middle",
+  "margin-left": "auto",
+  "text-align": "center",
+  "font-size": "15px",
+  "-webkit-box-flex": 0,
+  "-ms-flex": "0 0 90px",
+  "flex": "0 0 90px",
+}
+
+const textFieldTextPrimary = {
+  "display": "block",
+  "margin": "0 auto",
+  "background": "#2d3b55",
+  "width": "fit-content",
+  "padding": "8px",
+  "border-radius": "5px",
+  "color": "white"
 }
 
 const actions = {
@@ -156,9 +159,9 @@ const actions = {
 
 const list = {
     "color": "#969696",
-    "display": "-webkit-box",
-    //"display": "-ms-flexbox",
-    //"display": "flex",
+   /* "display": "-webkit-box",
+    "display": "-ms-flexbox",*/
+    "display": "flex",
     "-ms-flex-wrap": "wrap",
     "flex-wrap": "wrap",
     "margin-bottom": "0px",
@@ -169,7 +172,7 @@ const listItem = {
     //"margin": "0 4px",
     "margin": "5px 10px 5px 0px",
     "font-size": "13px",
-
+    
 }
 
 const actionList={

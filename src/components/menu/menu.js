@@ -70,6 +70,7 @@ export function Menu(props) {
                     <MenuItem name="Doctors" url="/doctors" style={SecondRow} />
                     <MenuItem name="Receptionists" url="/receptionists" style={SecondRow} />
                     <MenuItem name="Products" url="/products" style={SecondRow} />
+                    <MenuItem name="Inventory" url="/inventory" style={SecondRow} />
                     <MenuItem name="My Info" url="#" style={SecondRow} display={false} />
                 </div>
             </div>
@@ -88,6 +89,7 @@ export function Menu(props) {
                     <MenuItem name="Doctors" url="/doctors" style={SecondRow} />
                     <MenuItem name="Receptionists" url="/receptionists" display={false} style={SecondRow} />
                     <MenuItem name="Products" url="/products" style={SecondRow} />
+                    <MenuItem name="Inventory" url="/inventory" style={SecondRow} />
                     <MenuItem name="My Info" url="#" style={SecondRow} onClick={(e) => {
                             props.onOpenProfile(e, <ViewClientForm onClose={props.onClose} type={"self"} user_id={userData.userId}/>)
                     }}/>
@@ -109,6 +111,7 @@ export function Menu(props) {
                     <MenuItem name="Doctors" url="/doctors" style={SecondRow} />
                     <MenuItem name="Receptionists" url="/receptionists" display={false} style={SecondRow} />
                     <MenuItem name="Products" url="/products" style={SecondRow} />
+                    <MenuItem name="Inventory" url="/inventory" style={SecondRow} />
                     <MenuItem name="My Info" url="#" style={SecondRow} onClick={(e) => {
                             props.onOpenProfile(e, <ViewReceptionistForm onClose={props.onClose} type={"self"} user_id={userData.userId}/>)
                     }}/>
@@ -130,6 +133,7 @@ export function Menu(props) {
                     <MenuItem name="Doctors" url="/doctors" style={SecondRow} display={false} />
                     <MenuItem name="Receptionists" url="/receptionists" display={false} style={SecondRow} />
                     <MenuItem name="Products" url="/products" style={SecondRow} />
+                    <MenuItem name="Inventory" url="/inventory" style={SecondRow} />
                     <MenuItem name="My Info" url="#" style={SecondRow} onClick={(e) => {
                             props.onOpenProfile(e, <ViewReceptionistForm onClose={props.onClose} type={"self"} user_id={userData.userId}/>)
                     }}/>
@@ -151,6 +155,7 @@ export function Menu(props) {
                     <MenuItem name="Doctors" url="/doctors" style={SecondRow} />
                     <MenuItem name="Receptionists" url="/receptionists" style={SecondRow} />
                     <MenuItem name="Products" url="/products" style={SecondRow} />
+                    <MenuItem name="Inventory" url="/inventory" style={SecondRow} />
                     <MenuItem name="My Info" url="#" style={SecondRow} onClick={(e) => {
                             props.onOpenProfile(e, <ViewReceptionistForm onClose={props.onClose} type={"self"} user_id={userData.userId}/>)
                     }}/>

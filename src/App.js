@@ -10,6 +10,7 @@ import { Managers } from "./components/managers/managers";
 import { Products } from "./components/products/products";
 import { Pets } from "./components/pets/pets";
 import { Receptionists } from "./components/receptionists/receptionists";
+import {Inventory} from "./components/inventory/inventory";
 
 
 function App() {
@@ -45,15 +46,21 @@ function App() {
       />  
 
       <Route path="/products" element={
-        <SecureRoute Route = {<Products />} LoggedIn={true} roles={[5, 3, 4, 2, 1]} Redirect="/" />} 
+        <SecureRoute Route = {<Products />} LoggedIn={true} roles={[5, 3, 4, 2, 1]} Redirect="/" />}
       />  
 
       <Route path="/pets" element={
         <SecureRoute Route = {<Pets />} LoggedIn={true} roles={[3, 4, 2, 1]} Redirect="/" />} 
       />
       <Route path="/receptionists" element={
-        <SecureRoute Route = {<Receptionists />} LoggedIn={true} roles={[5, 2, 1]} Redirect="/" />} 
+        <SecureRoute Route = {<Receptionists />} LoggedIn={true} roles={[5, 2, 1]} Redirect="/" />}
       />
+
+        {/*我的inventory*/}
+      <Route path="/inventory" element={
+        <SecureRoute Route = {<Inventory />} LoggedIn={true} roles={[5, 2, 1]} Redirect="/" />}
+      />
+
       
       <Route path="/not-authorized" element={<NotAuthorized />} />
 
