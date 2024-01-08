@@ -27,6 +27,7 @@ export function AddInventoryForm(props) {
             "pricePerUnit": "",
             "stock": "",
             "type": "",
+            "suggestion": "", //TODO 建议
         },
     });
 
@@ -39,14 +40,14 @@ export function AddInventoryForm(props) {
                 <div>
                     <div>
                     <form>
-                        <h6 style={BlockHeader}>Product information</h6>
+                        <h6 style={BlockHeader}>Inventory information</h6>
                         <div style={FormBlock}>
                             <div style={FormRow}>
                                 <div style={FormInputContainer}>
                                     <div>
-                                        <label style={InputLabel} >Product Name</label>
+                                        <label style={InputLabel} >Inventory Name</label>
 
-                                        <input type="text" placeholder="Product Name" name="name" value={formik.values['name']} onChange={formik.handleChange} style={FormInput} />
+                                        <input type="text" placeholder="Inventory Name" name="name" value={formik.values['name']} onChange={formik.handleChange} style={FormInput} />
                             
                                     </div>
                                 </div>
@@ -72,10 +73,19 @@ export function AddInventoryForm(props) {
                                 </div>
                                 <div style={FormInputContainer}>
                                     <div>
-                                        <label style={InputLabel}>Product Stock</label>
+                                        <label style={InputLabel}>Inventory Stock</label>
 
-                                        <input name="stock" type="text" placeholder="Product Stock" value={formik.values['stock']} onChange={formik.handleChange} style={FormInput} />
+                                        <input name="stock" type="text" placeholder="Inventory Stock" value={formik.values['stock']} onChange={formik.handleChange} style={FormInput} />
                             
+                                    </div>
+                                </div>
+
+                                <div style={FormInputContainer}>
+                                    <div>
+                                        <label style={InputLabel}>Inventory Suggestion</label>
+
+                                        <input name="suggestion" type="text" placeholder="Suggestion Stock" value={formik.values['suggestion']} onChange={formik.handleChange} style={FormInput} />
+
                                     </div>
                                 </div>
                                

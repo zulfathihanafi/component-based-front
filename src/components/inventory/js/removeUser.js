@@ -10,7 +10,7 @@ export const removeUser = async (user_id) => {
 
     
 
-    return axios.get(process.env.REACT_APP_HOST+"inventory/remove/"+user_id) //template request
+    return axios.put(process.env.REACT_APP_HOST+"inventory/remove/"+user_id) //template request
     .then(data => {
         return data.data
     })

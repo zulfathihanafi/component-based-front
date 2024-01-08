@@ -9,8 +9,8 @@ import axios from 'axios';
 export const removeUser = async (user_id) => {
 
     
-
-    return axios.get(process.env.REACT_APP_HOST+"doctors/remove/"+user_id) //template request
+//TODO not the get, should be the axios.put, 我把 GetMapping改成PutMapping
+    return axios.put(process.env.REACT_APP_HOST+"doctors/remove/"+user_id) //template request
     .then(data => {
         return data.data
     })

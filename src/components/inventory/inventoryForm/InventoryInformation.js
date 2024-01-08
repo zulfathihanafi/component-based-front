@@ -55,6 +55,7 @@ export function InventoryInformation(props) {
             "pricePerUnit": "",
             "stock": "",
             "type": "",
+            "suggestion": "",
             "id": ""
         },
     });

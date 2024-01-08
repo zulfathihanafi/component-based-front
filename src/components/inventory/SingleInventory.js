@@ -62,6 +62,10 @@ export function SingleInventory(props) {
             <td style={textFieldPrimary}>
               <span style={textFieldTextPrimary}>Price: {props.user_data.pricePerUnit} ALL</span>
             </td>
+
+              <td>
+                  {Number(props.user_data.stock)<10 ? "Not enough stack":"Enough stock"}
+              </td>
             <td style={actions}>
               <ul style={actionList}>
                 {cookies.user.role.id==1 || cookies.user.role.id==2 ? <li style={actionListItem}><a href="#" onClick={(e) => props.onOpenUserForm(e, props.user_data.id, "edit")} user_id = {props.user_data.id} style={{"color": "#60C656"}}><AiFillEdit size="25"/></a></li> : ""}
