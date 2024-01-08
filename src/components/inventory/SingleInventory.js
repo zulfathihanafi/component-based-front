@@ -62,9 +62,12 @@ export function SingleInventory(props) {
             <td style={textFieldPrimary}>
               <span style={textFieldTextPrimary}>Price: {props.user_data.pricePerUnit} ALL</span>
             </td>
-
+             {/* todo 增加的判断inventory是不是够  */}
               <td>
                   {Number(props.user_data.stock)<10 ? "Not enough stack":"Enough stock"}
+              </td>
+              <td>
+                  {Number(props.user_data.stock)<3 ? "Buy More Now!": ""}
               </td>
             <td style={actions}>
               <ul style={actionList}>
